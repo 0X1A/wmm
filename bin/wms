@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+
+home = ENV['HOME']
+wms_file = "/.config/wms/wms.yml"
+config = File.exists?("#{home}#{wms_file}")
+
+if config == false
+	puts "Configuration ~/.config/wms/wms.yml not found"
+else
+	config = YAML.load_file("#{home}#{wms_file}")
+	if config["exec"] != nil
+		for i in config["exec"]
+			system("#{i} &")
+		end
+	end
+	if config["panel"] != nil
+		system("#{config["panel"]} &")
+	end
+	if config["wm"] != nil
+		exec("exec #{config["wm"]}")
+	end
+end

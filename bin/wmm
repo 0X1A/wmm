@@ -3,11 +3,11 @@
 require 'yaml'
 
 home = ENV['HOME']
-wms_file = "/.config/wms/wms.yml"
+wms_file = "/.config/wmm/wmm.yml"
 config = File.exists?("#{home}#{wms_file}")
 
 if config == false
-	puts "Configuration ~/.config/wms/wms.yml not found"
+	puts "Configuration ~/.config/wmm/wmm.yml not found"
 else
 	config = YAML.load_file("#{home}#{wms_file}")
 	if config["exec"] != nil

@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
 	s.description	= "Managing your window manager settings"
 	s.authors	= "Alberto Corona"
 	s.email		= "alberto@0x1a.us"
-	s.files		= "bin/wms"
-	s.executables	= "wms"
+	s.files		= "bin/wmm"
+	s.executables	= "wmm"
 	s.license	= 'BSD'
 end

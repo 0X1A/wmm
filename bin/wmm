@@ -12,6 +12,11 @@ else
 	config = YAML.load_file("#{home}#{wms_file}")
 	if config["exec"] != nil
 		for i in config["exec"]
+			system("#{i}")
+		end
+	end
+	if config["background"] != nil
+		for i in config["background"]
 			system("#{i} &")
 		end
 	end

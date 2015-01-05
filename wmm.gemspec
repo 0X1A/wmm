@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
 	s.name		= "wmm"
-	s.version	= "0.0.2"
+	s.version	= "0.0.3"
 	s.summary	= "Window Manager Manager"
 	s.description	= "Managing your window manager settings"
 	s.authors	= "Alberto Corona"

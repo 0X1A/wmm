@@ -3,13 +3,13 @@
 require 'yaml'
 
 home = ENV['HOME'] || raise("No $HOME found")
-wms_file = "/.config/wmm/wmm.yml"
-config = File.exists?(home + wms_file)
+wmm_file = "/.config/wmm/wmm.yml"
+config = File.exists?(home + wmm_file)
 
 unless config
-	puts "Configuration #{home + wms_file} not found"
+	puts "Configuration #{home + wmm_file} not found"
 else
-	config = YAML.load_file(home + wms_file)
+	config = YAML.load_file(home + wmm_file)
   config['exec'].each { |i| system i.to_s } unless config["exec"].nil?
   config["background"].each { |i| system "#{i} &" } unless config["background"].nil?
   system("#{config["panel"]} &") unless config["panel"].nil?

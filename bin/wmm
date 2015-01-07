@@ -10,20 +10,8 @@ unless config
 	puts "Configuration #{home + wms_file} not found"
 else
 	config = YAML.load_file(home + wms_file)
-	if config["exec"] != nil
-		for i in config["exec"]
-			system("#{i}")
-		end
-	end
-	if config["background"] != nil
-		for i in config["background"]
-			system("#{i} &")
-		end
-	end
-	if config["panel"] != nil
-		system("#{config["panel"]} &")
-	end
-	if config["wm"] != nil
-		exec("exec #{config["wm"]}")
-	end
+  config['exec'].each { |i| system i.to_s } unless config["exec"].nil?
+  config["background"].each { |i| system "#{i} &" } unless config["background"].nil?
+  system("#{config["panel"]} &") unless config["panel"].nil?
+  exec("exec #{config["wm"]}") unless config["wm"].nil?
 end

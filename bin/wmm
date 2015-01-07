@@ -4,7 +4,7 @@ require 'yaml'
 
 home = ENV['HOME'] || raise("No $HOME found")
 wms_file = "/.config/wmm/wmm.yml"
-config = File.exists?("#{home}#{wms_file}")
+config = File.exists?(home + wms_file)
 
 if config == false
 	puts "Configuration ~/.config/wmm/wmm.yml not found"

@@ -6,7 +6,7 @@ home = ENV['HOME'] || raise("No $HOME found")
 wms_file = "/.config/wmm/wmm.yml"
 config = File.exists?(home + wms_file)
 
-if config == false
+unless config
 	puts "Configuration ~/.config/wmm/wmm.yml not found"
 else
 	config = YAML.load_file("#{home}#{wms_file}")

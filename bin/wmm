@@ -7,9 +7,9 @@ wms_file = "/.config/wmm/wmm.yml"
 config = File.exists?(home + wms_file)
 
 unless config
-	puts "Configuration ~/.config/wmm/wmm.yml not found"
+	puts "Configuration #{home + wms_file} not found"
 else
-	config = YAML.load_file("#{home}#{wms_file}")
+	config = YAML.load_file(home + wms_file)
 	if config["exec"] != nil
 		for i in config["exec"]
 			system("#{i}")

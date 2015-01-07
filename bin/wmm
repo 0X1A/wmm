@@ -10,8 +10,8 @@ unless config
 	puts "Configuration #{home + wmm_file} not found"
 else
 	config = YAML.load_file(home + wmm_file)
-	config['exec'].each { |i| system i.to_s } unless config["exec"].nil?
-	config["background"].each { |i| system "#{i} &" } unless config["background"].nil?
+	config["exec"].each {|i| system i.to_s} unless config["exec"].nil?
+	config["background"].each {|i| system "#{i} &"} unless config["background"].nil?
 	system("#{config["panel"]} &") unless config["panel"].nil?
 	exec("exec #{config["wm"]}") unless config["wm"].nil?
 end
